@@ -10,3 +10,5 @@ SqlServerHost = conf.get('sqlserver', 'SqlServerHost')
 SqlServerUser = conf.get('sqlserver', 'SqlServerUser')
 SqlServerPwd = conf.get('sqlserver', 'SqlServerPwd')
 DbName = conf.get('sqlserver', 'DbName')
+
+root_url=''
