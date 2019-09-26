@@ -45,7 +45,7 @@ def GetFilmsOnPage(url):
             summary = OneNineZeroFiveAnalysis.GetFilmSummary(CurrentFilmPageContent)
             # 存入数据库
             OneNineZeroFiveDbService.InsertData(summary, filmId)
-            logger.info(str.format('Save Success! %s' % summary))
+            logger.info(str.format('Save Success! %s' % summary[0]))
     # 查找下一个链接
     NextPage_Url = OneNineZeroFiveAnalysis.GetNextPageUrl(Page_Content)
     if(len(NextPage_Url)>0):

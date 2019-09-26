@@ -6,22 +6,26 @@ import SqlHelper
 # 将数据信息插入数据库
 def InsertData(data, FilmId):
     sql = 'INSERT INTO [dbo].[Film1905] ([Name],[Country],[Language],[FilmType],[OtherFilmName],[PlayTime],[Color],[PlayType],[PlayInfo],[FilmId]) \
-        VALUES ("%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s")'
+        VALUES ("%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s" ,"%s", "%s", "%s")'
     
     filmname = data[0]
     country = data[1]
     language = data[2]
     filmtype = data[3]
-    otherfilmname = data[4]
-    playtime = data[5]
-    color = data[6]
-    playtype = data[7]
-    playinfo = data[8]
+    othercnfilmname = data[4]
+    otherenfilename = data[5]
+    playtime = data[6]
+    color = data[7]
+    playtype = data[8]
+    playinfo = data[9]
+    userrating = data[10]
+    shootingtime = data[11]
+    filminglocations = data[12]
 
-    insertsql = '''INSERT INTO [dbo].[Film1905] ([Name],[Country],[Language],[FilmType],[OtherFilmName],[PlayTime],[Color],[PlayType],[PlayInfo],[FilmId]) \
-        VALUES (%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s)'''
+    insertsql = '''INSERT INTO [dbo].[Film1905] ([Name],[Country],[Language],[FilmType],[OtherCNFilmName],[OtherENFilmName],[PlayTime],[Color],[PlayType],[PlayInfo],[FilmId],[UserRating],[ShootingTime],[FilmingLocations]) \
+        VALUES (%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s, %s, %s, %s, %s)'''
 
-    conn = SqlHelper.Exec(insertsql, (filmname, country, language, filmtype, otherfilmname, playtime, color, playtype, playinfo, FilmId))
+    conn = SqlHelper.Exec(insertsql, (filmname, country, language, filmtype, othercnfilmname, otherenfilename, playtime, color, playtype, playinfo, FilmId, userrating, shootingtime, filminglocations))
 
 # 查询电影Id是否存在
 def QueryFilmExists(film_id):
