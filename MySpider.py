@@ -53,3 +53,12 @@ def GetFilmsOnPage(url):
         logger.info(str.format('goto %s' % (Full_NextPage_Url)))
         time.sleep(2)
         GetFilmsOnPage(Full_NextPage_Url)
+
+# 根据首字母获取电影
+def GetFilmByInitial(url):
+    Page_Content = GetHtmlWithHeader(url)
+    # 获取所有首字母首页地址
+    All_Initial_Urls = OneNineZeroFiveAnalysis.GetInitialUrl(Page_Content)
+
+    for url in All_Initial_Urls:
+        GetFilmsOnPage(ConfigHelper.root_url + url)

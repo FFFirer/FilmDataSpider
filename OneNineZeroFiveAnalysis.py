@@ -76,9 +76,16 @@ def GetAllFilmeLinkOnPage(page_content):
 
     return film_urls
 
-
+# 测试
 def GetContentTest(page_content):
     html = etree.HTML(page_content)
     res = html.xpath(r'/html/body/section[3]/div/ul/li/div[2]/ul[2]/dl[1]/dt/text()')
     #res = html.xpath('//dt[text()="色\xa0\xa0\xa0\xa0\xa0\xa0\xa0彩"]/text()')
     return res
+
+# 首字母排序，首页
+def GetInitialUrl(page_content):
+    html = etree.HTML(page_content)
+    initial_urls = html.xpath('//dt[text()="按影片首字母"]/following-sibling::dd/a/@href')
+
+    return initial_urls
