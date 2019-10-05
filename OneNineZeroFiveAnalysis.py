@@ -65,7 +65,10 @@ def GetNextPageUrl(page_content):
     html = etree.HTML(page_content)
     #nextpage_url = html.xpath('//*[@id="new_page"]/a[5]/@href')
     nextpage_url = html.xpath('//a[text()="下一页"]/@href')
-    return nextpage_url[0]
+    if(len(nextpage_url)>0):
+        return nextpage_url[0]
+    else:
+        return ''
 
 # 获取当前页面所有影片的链接
 def GetAllFilmeLinkOnPage(page_content):

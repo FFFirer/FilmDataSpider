@@ -11,7 +11,7 @@ logger = logging.getLogger('logger')
 logger.setLevel(logging.INFO)
 
 # 写入文件，如果文件超过8Mb，仅保留10个文件
-handler = logging.handlers.RotatingFileHandler('logs/Info.log', maxBytes=8000, backupCount=3)
+handler = logging.handlers.RotatingFileHandler('logs/Info.log', maxBytes=8000, backupCount=3, encoding='utf-8')
 
 # 格式化日志
 formatter = logging.Formatter('%(asctime)s | %(name)s | %(levelname)-8s | %(message)s')
